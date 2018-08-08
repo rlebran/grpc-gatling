@@ -2,21 +2,21 @@ name := "gatling-grpc"
 
 organization := "ch.tamedia"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.6"
 
 lazy val root = (project in file(".")).enablePlugins(GatlingPlugin)
 
-lazy val gatlingVersion = "2.2.2"
+lazy val gatlingVersion = "2.3.0"
 
 libraryDependencies ++= Seq(
 	"io.gatling.highcharts" % "gatling-charts-highcharts" % gatlingVersion % "test" withJavadoc() withSources(),
 	"io.gatling"            % "gatling-test-framework"    % gatlingVersion % "test" withJavadoc() withSources(),
   "io.gatling" % "gatling-core" % gatlingVersion,
-  "io.grpc" % "grpc-netty" % "1.0.3",
-  "com.trueaccord.scalapb" %% "scalapb-runtime" % com.trueaccord.scalapb.compiler.Version.scalapbVersion,
-  "com.trueaccord.scalapb" %% "scalapb-runtime-grpc" % com.trueaccord.scalapb.compiler.Version.scalapbVersion,
+  "io.grpc" % "grpc-netty" % "1.14.0",
+  "com.thesamet.scalapb" %% "scalapb-runtime" % scalapb.compiler.Version.scalapbVersion,
+  "com.thesamet.scalapb" %% "scalapb-runtime-grpc" % scalapb.compiler.Version.scalapbVersion,
   "io.netty" % "netty-tcnative-boringssl-static" % "1.1.33.Fork26",
-  "io.grpc" % "grpc-testing" % "1.0.2"
+  "io.grpc" % "grpc-testing" % "1.14.0"
 )
 
 javaOptions in Gatling := overrideDefaultJavaOptions("-Xms1g", "-Xmx2g")

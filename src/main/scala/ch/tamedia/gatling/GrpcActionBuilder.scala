@@ -1,6 +1,5 @@
 package ch.tamedia.gatling
 
-import ch.tamedia.gatling.actions.impl.{GrpcAsyncCallAction, GrpcSyncCallAction}
 import ch.tamedia.gatling.actions.{GrpcAction, GrpcExecutableAction}
 import ch.tamedia.gatling.grpc._
 import io.gatling.core.action.Action
@@ -24,7 +23,7 @@ case class GrpcActionBuilder(action: GrpcExecutableAction, checks: List[GrpcChec
     import ctx._
     val statsEngine = coreComponents.statsEngine
     GrpcAction(action, checks, new GrpcProtocol, ctx.system, statsEngine, next)
-//    functionName match {
+    //    functionName match {
 //      case "async" => GrpcAction(GrpcAsyncCallAction(functionName, host, port, requestMessage = payload.get), checks, new GrpcProtocol, ctx.system, statsEngine, next)
 //      case "sync"  => GrpcAction(GrpcSyncCallAction(functionName, host, port, requestMessage = payload.get), checks, new GrpcProtocol, ctx.system, statsEngine, next)
 //      case       _ => throw new UnsupportedOperationException(s"Operation $functionName is not supported")
