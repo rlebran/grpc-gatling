@@ -4,11 +4,11 @@ package ch.tamedia.gatling.log;
 option java_package = "ch.tamedia.gatling.log";
 
 message LogResponse {
-    optional string message = 1 [default = ""];
+    required string message = 1;
 }
 
 message LogRequest {
-    optional string payload = 1 [default = ""];
+    required string payload = 1;
 }
 
 service LogEndpoint {

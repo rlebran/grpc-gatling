@@ -1,10 +1,10 @@
 package ch.tamedia.gatling.actions.impl
 
 import ch.tamedia.gatling.actions.GrpcExecutableAsyncAction
-import ch.tamedia.gatling.lo
-import ch.tamedia.noname.server.grpc.endpoint.log.{LogEndpointGrpc, LogRequest}
-import com.trueaccord.scalapb.GeneratedMessage
+import ch.tamedia.gatling.log.LogEndpointGrpc.LogEndpointStub
+import ch.tamedia.gatling.log.{LogEndpointGrpc, LogRequest}
 import io.grpc.ManagedChannelBuilder
+import scalapb.GeneratedMessage
 
 import scala.concurrent.Future
 
@@ -25,7 +25,7 @@ object GrpcAsyncCallAction {
 
 class GrpcAsyncCallAction(val name: String, host: String, port: Int, requestMessage: String) extends GrpcExecutableAsyncAction{
 
-  var channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build
+  var channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext.build
   val asyncCall: LogEndpointStub = LogEndpointGrpc.stub(channel)
 
   /**

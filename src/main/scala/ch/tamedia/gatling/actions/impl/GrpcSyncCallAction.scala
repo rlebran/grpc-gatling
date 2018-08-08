@@ -1,7 +1,7 @@
 package ch.tamedia.gatling.actions.impl
 
 import ch.tamedia.gatling.actions.GrpcExecutableSyncAction
-import ch.tamedia.noname.server.grpc.endpoint.log.{LogEndpointGrpc, LogRequest}
+import ch.tamedia.gatling.log.{LogEndpointGrpc, LogRequest}
 import io.grpc.ManagedChannelBuilder
 
 /**
@@ -22,7 +22,7 @@ object GrpcSyncCallAction {
 
 class GrpcSyncCallAction(val name: String, host: String, port: Int, requestMessage: String) extends GrpcExecutableSyncAction {
 
-  var channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext(true).build
+  var channel = ManagedChannelBuilder.forAddress(host, port).usePlaintext.build
   val blockingCall = LogEndpointGrpc.blockingStub(channel)
 
   /**

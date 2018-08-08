@@ -1,6 +1,6 @@
 package ch.tamedia.gatling.actions
 
-import com.trueaccord.scalapb.GeneratedMessage
+import scalapb.GeneratedMessage
 
 import scala.concurrent.Future
 

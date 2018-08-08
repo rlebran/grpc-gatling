@@ -1,9 +1,6 @@
 package ch.tamedia.gatling.actions
 
-import com.trueaccord.scalapb.GeneratedMessage
-
-import scala.concurrent.Future
-
+import scalapb.GeneratedMessage
 
 /**
   * Implementation of GrpcExecutableAction that disables Sync call

@@ -2,11 +2,11 @@ package ch.tamedia.gatling.tests
 
 import ch.tamedia.gatling.GrpcCustomCheck
 import ch.tamedia.gatling.actions.impl.{GrpcAsyncCallAction, GrpcSyncCallAction}
-import ch.tamedia.noname.server.grpc.endpoint.log.LogResponse
-import com.trueaccord.scalapb.GeneratedMessage
+import ch.tamedia.gatling.log.LogResponse
 import io.gatling.core.Predef._
-import scala.concurrent.duration._
+import scalapb.GeneratedMessage
 
+import scala.concurrent.duration._
 import scala.io.Source
 
 class GrpcSyncServerSimulation extends Simulation {
@@ -21,10 +21,10 @@ class GrpcSyncServerSimulation extends Simulation {
   val grpcConfig = GRPC()
 
   val grpcScenario = scenario("Test GRPC server")
-      .exec(grpcCall(GrpcAsyncCallAction("async", host, port, json)).check(new GrpcCustomCheck((s: GeneratedMessage) => {
-        s.asInstanceOf[LogResponse].message.equals("OK")
-      })))
-      .exec(grpcCall(GrpcSyncCallAction("sync", host, port, json)).check(new GrpcCustomCheck((s: GeneratedMessage) => {
+    .exec(grpcCall(GrpcAsyncCallAction("async", host, port, json)).check(GrpcCustomCheck((s: GeneratedMessage) => {
+      s.asInstanceOf[LogResponse].message.equals("OK")
+    })))
+      .exec(grpcCall(GrpcSyncCallAction("sync", host, port, json)).check(GrpcCustomCheck((s: GeneratedMessage) => {
         s.asInstanceOf[LogResponse].message.equals("OK")
       })))
 

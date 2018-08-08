@@ -1,5 +1,5 @@
 
-name := "gatling-grpc"
+name := "grpc-gatling"
 
 organization := "ch.tamedia"
 

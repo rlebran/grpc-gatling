@@ -1,8 +1,8 @@
 package ch.tamedia.gatling
 
-import com.trueaccord.scalapb.GeneratedMessage
 import io.gatling.commons.validation.Success
 import io.gatling.core.check.{Check, Extender, Preparer}
+import scalapb.GeneratedMessage
 
 object grpc {
   type GrpcCheck = Check[GeneratedMessage]

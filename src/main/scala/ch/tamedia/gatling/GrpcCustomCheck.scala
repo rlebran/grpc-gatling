@@ -1,10 +1,10 @@
 package ch.tamedia.gatling
 
 import ch.tamedia.gatling.grpc._
-import com.trueaccord.scalapb.GeneratedMessage
 import io.gatling.commons.validation.{Failure, Validation}
 import io.gatling.core.check.CheckResult
 import io.gatling.core.session.Session
+import scalapb.GeneratedMessage
 
 import scala.collection.mutable
 
