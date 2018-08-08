@@ -1,4 +1,3 @@
-
 name := "grpc-gatling"
 
 organization := "ch.tamedia"
@@ -9,6 +8,8 @@ lazy val root = (project in file("."))
   .enablePlugins(GatlingPlugin)
 
 lazy val gatlingVersion = "2.3.0"
+
+version in ThisBuild := "0.1.0"
 
 libraryDependencies ++= Seq(
 	"io.gatling.highcharts" % "gatling-charts-highcharts" % gatlingVersion % "test" withJavadoc() withSources(),
