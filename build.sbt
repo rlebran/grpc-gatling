@@ -1,10 +1,12 @@
+
 name := "gatling-grpc"
 
 organization := "ch.tamedia"
 
 scalaVersion := "2.12.6"
 
-lazy val root = (project in file(".")).enablePlugins(GatlingPlugin)
+lazy val root = (project in file("."))
+  .enablePlugins(GatlingPlugin)
 
 lazy val gatlingVersion = "2.3.0"
 
@@ -20,6 +22,11 @@ libraryDependencies ++= Seq(
 )
 
 javaOptions in Gatling := overrideDefaultJavaOptions("-Xms1g", "-Xmx2g")
+
+PB.targets in Compile := Seq(
+  scalapb.gen(flatPackage = true) -> (sourceManaged in Compile).value
+)
+PB.protoSources in Compile += target.value / "protobuf_external"
 
 scalacOptions ++= Seq(
   "-deprecation", 					// Emit warning and location for usages of deprecated APIs.

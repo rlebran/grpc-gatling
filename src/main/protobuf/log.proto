@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+package ch.tamedia.gatling.log;
+option java_package = "ch.tamedia.gatling.log";
+
+message LogResponse {
+    optional string message = 1 [default = ""];
+}
+
+message LogRequest {
+    optional string payload = 1 [default = ""];
+}
+
+service LogEndpoint {
+    rpc send (LogRequest) returns (LogResponse) {}
+}

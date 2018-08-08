@@ -1,7 +1,7 @@
 package ch.tamedia.gatling.actions.impl
 
 import ch.tamedia.gatling.actions.GrpcExecutableAsyncAction
-import ch.tamedia.noname.server.grpc.endpoint.log.LogEndpointGrpc.LogEndpointStub
+import ch.tamedia.gatling.lo
 import ch.tamedia.noname.server.grpc.endpoint.log.{LogEndpointGrpc, LogRequest}
 import com.trueaccord.scalapb.GeneratedMessage
 import io.grpc.ManagedChannelBuilder
